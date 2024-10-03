@@ -18,7 +18,7 @@ const Tour = ({ id, name, info, image, price, removeTour }) => {
               id={`see-more-${id}`}
               onClick={() => setReadMore(!readMore)}
             >
-              Show more
+              See more
             </button>
           ) : (
             <button
