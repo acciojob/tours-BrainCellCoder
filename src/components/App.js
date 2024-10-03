@@ -82,7 +82,7 @@ function App() {
   }
 
   return (
-    <main>
+    <main id="main">
       <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
