@@ -44,13 +44,12 @@ const DATA = [
       "https://dl.airtable.com/.attachments/3feee7a93af0f4f809312132090c9a80/58e3e8ec/poland.jpeg",
     price: "2,595",
   },
-]; // Change this if needed
+];
 
-function App() {
+export const App = () => {
   const [loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
-  // Function to fetch tours (replace with actual API call if needed)
   const fetchTours = async () => {
     setLoading(true);
     try {
@@ -65,18 +64,15 @@ function App() {
     }
   };
 
-  // Delete tour by filtering out the one with the selected ID
   const removeTour = (id) => {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTours(newTours);
   };
 
-  // useEffect to fetch the tours when the component mounts
   useEffect(() => {
     fetchTours();
   }, []);
 
-  // Handle empty tour list
   if (loading) {
     return <Loading />;
   }
@@ -97,6 +93,4 @@ function App() {
       <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
-}
-
-export default App;
+};
