@@ -44,24 +44,16 @@ const DATA = [
       "https://dl.airtable.com/.attachments/3feee7a93af0f4f809312132090c9a80/58e3e8ec/poland.jpeg",
     price: "2,595",
   },
-];
+]; // Change this if needed
 
-export const App = () => {
+function App() {
   const [loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
-  const fetchTours = async () => {
+  const fetchTours = () => {
     setLoading(true);
-    try {
-      const response = await fetch(url);
-      const tours = await response.json();
-      setTours(tours);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setTours(DATA);
-      setLoading(false);
-    }
+    setTours(DATA);
+    setLoading(false);
   };
 
   const removeTour = (id) => {
@@ -73,6 +65,7 @@ export const App = () => {
     fetchTours();
   }, []);
 
+  // Handle empty tour list
   if (loading) {
     return <Loading />;
   }
@@ -89,8 +82,10 @@ export const App = () => {
   }
 
   return (
-    <main id="main">
+    <main>
       <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
-};
+}
+
+export default App;
