@@ -15,14 +15,14 @@ const Tour = ({ id, name, info, image, price, removeTour }) => {
           {readMore ? info : `${info.substring(0, 200)}`}
           {!readMore ? (
             <button
-              id={`See-more-${id}`}
+              id={`see-more-${id}`}
               onClick={() => setReadMore(!readMore)}
             >
               Show more
             </button>
           ) : (
             <button
-              id={`See-less-${id}`}
+              id={`see-less-${id}`}
               onClick={() => setReadMore(!readMore)}
             >
               See less
